@@ -1,0 +1,84 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+}
+
+.chatbot-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.chat-container {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.chat-header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  text-align: center;
+}
+
+.chat-input-area {
+  display: flex;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 0 0 0 10px;
+}
+
+.send-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 0 0 10px 0;
+}
+
+/* Existing styles */
+
+.chat-messages {
+  padding: 10px;
+  height: 200px;
+  overflow-y: auto;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Position user messages on the right */
+.user-message {
+  align-self: flex-end;
+  background-color: #d1e7dd;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+/* Position bot messages on the left */
+.bot-message {
+  align-self: flex-start;
+  background-color: #f8d7da;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
