@@ -5,7 +5,6 @@ const defaultResponses = {
   "how are you": "I'm just a bot, but I'm here to help! How are you?",
 };
 
-
 // Function to send user messages
 function sendMessage() {
   const chatInput = document.getElementById('chatInput');
@@ -57,3 +56,27 @@ document.getElementById('chatInput').addEventListener('keypress', function(e) {
     sendMessage();
   }
 });
+
+//Create the Google Sign-In div
+document.getElementById('chatMessages').innerHTML = 
+    '<button id="signInDiv" style="margin-top: 10px; padding: 15px; background-color: #4285F4; color: white; border: none; border-radius: 5px; cursor: pointer;">Google Sign-In</button>';
+
+//Google Integration
+function handleCredentialResponse(response) {
+            const data = jwt_decode(response.credential);  // JWT decode function to get user info
+            console.log('ID Token:', response.credential);
+            console.log('User info:', data);
+			document.getElementById('given_name').innerHTML = data.given_name;
+        }
+
+        function initializeGoogleSignIn() {
+            google.accounts.id.initialize({
+                client_id: "797479792738-keusivlrc0lithsap3eguovfg5nmq4ie.apps.googleusercontent.com",
+                callback: handleCredentialResponse
+            });
+            google.accounts.id.renderButton(
+                document.getElementById('signInDiv'),
+                { theme: 'outline', size: 'large' }  // Customizing button
+            );
+            google.accounts.id.prompt();  // Display the One Tap prompt automatically
+        }

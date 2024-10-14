@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot</title>
+  <meta name="google-signin-client_id" content="797479792738-keusivlrc0lithsap3eguovfg5nmq4ie.apps.googleusercontent.com">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="initializeGoogleSignIn()">
+  <!-- Chatbot icon -->
+  <div class="chatbot-icon" id="chatbotIcon">
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Chatbot Icon" width="50">
+  </div>
+  
+  <!-- Chat container -->
+  <div class="chat-container" id="chatContainer">
+    <div class="chat-header">Chatbot <span id='given_name'></span></div>  
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input-area">
+      <input type="text" id="chatInput" class="chat-input" placeholder="Type a message...">
+      <button id="sendButton" class="send-button">Send</button>
+    </div>
+  </div>
+   <!-- Include jwt-decode library to decode JWT tokens -->
+  <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+  
+  <script src="script.js"></script>
+</body>
+
+</html>

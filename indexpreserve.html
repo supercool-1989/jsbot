@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Google Sign-In Integration</title>
+    <meta name="google-signin-client_id" content="797479792738-keusivlrc0lithsap3eguovfg5nmq4ie.apps.googleusercontent.com">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        function handleCredentialResponse(response) {
+            const data = jwt_decode(response.credential);  // JWT decode function to get user info
+            console.log('ID Token:', response.credential);
+            console.log('User info:', data);
+        }
+
+        function initializeGoogleSignIn() {
+            google.accounts.id.initialize({
+                client_id: "797479792738-keusivlrc0lithsap3eguovfg5nmq4ie.apps.googleusercontent.com",
+                callback: handleCredentialResponse
+            });
+            google.accounts.id.renderButton(
+                document.getElementById('signInDiv'),
+                { theme: 'outline', size: 'large' }  // Customizing button
+            );
+            google.accounts.id.prompt();  // Display the One Tap prompt automatically
+        }
+    </script>
+</head>
+<body onload="initializeGoogleSignIn()">
+
+    <h2>Login using Google</h2>
+    <div id="signInDiv"></div>  <!-- Google Sign-In button will be rendered here -->
+
+    <!-- Include jwt-decode library to decode JWT tokens -->
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+
+</body>
+</html>
